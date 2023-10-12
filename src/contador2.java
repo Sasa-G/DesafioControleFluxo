@@ -2,8 +2,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 public class contador2 {
     public static void main(String[] args) throws ParametrosInvalidosException {
-        Scanner terminal = new Scanner(System.in);
-        try {
+        try (Scanner terminal = new Scanner(System.in)) {
+            try {
             System.out.println("Digite o primeiro número inteiro.");
             int parametroUm = terminal.nextInt();
             System.out.println("Digite o segundo número inteiro.");
@@ -13,6 +13,7 @@ public class contador2 {
             System.out.println("Total de iterações do FOR: " + (totalIteracoes - 1));
         } catch (InputMismatchException e) {
             System.out.println("Só é aceito como argumento entradas numéricas.");
+        }
         }
     }
     private static int contar(int parametroUm, int parametroDois) throws contador2.ParametrosInvalidosException {
